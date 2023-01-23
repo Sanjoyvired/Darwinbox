@@ -11,11 +11,17 @@ function clickfunction() {
   document.getElementById("photo").innerHTML = "hero";
   watchmore.className = "btn btn-secondary";
   document.getElementById("photo").style.color = "black";
-  localStorage.setItem("name", "Sanjoy");
-  window.open("aboutus.html?param1=1", "_blank");
-}
 
-login = document.getElementById("loginbutton");
-login.onclick = function () {
-  loginfunction();
-};
+  //First check if there is userida and password exists in the local storage
+  //Validation of the userid and password
+  //if succesful then redirect to home page else redirect to login page
+
+  localStorage.setItem("email", "sanjoy.paul@herovired.com");
+  localStorage.setItem("name", "Sanjoy");
+
+  var url = new urlparams("aboutus.html");
+  console.log("URL", url);
+  url.searchParams.set("param1", "1");
+
+  window.open(url, "_blank");
+}
